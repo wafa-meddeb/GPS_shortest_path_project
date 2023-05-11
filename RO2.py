@@ -6,6 +6,8 @@ import folium
 import ipywidgets
 import math
 import tkinter as tk
+from IPython.display import display
+
 
 # **Graph avec networkx**
 
@@ -118,22 +120,28 @@ def foliumMap():
 
 # widget function
 def select(map_type):
-        if map_type == 'Open Street Map':
-            display(m)
-        if map_type == 'Terrain':
-            display(folium.Map(location=[46.815514 , 8.224472], tiles='Stamen Terrain', zoom_start=8, height=400))
-        if map_type == 'Toner':
-            display(folium.Map(location=[46.815514 , 8.224472], tiles='Stamen Toner', zoom_start=8, height=400))
-        if map_type == 'Watercolor':
-            display(folium.Map(location=[46.815514 , 8.224472], tiles='Stamen Watercolor', zoom_start=8, height=400))
-        if map_type == 'Positron':
-            display(folium.Map(location=[46.815514 , 8.224472], tiles='CartoDB Positron', zoom_start=8, height=400))
-        if map_type == 'Dark Matter':
-            display(folium.Map(location=[46.815514 , 8.224472], tiles='CartoDB Dark_Matter', zoom_start=8, height=400))
+    
+    if map_type == 'Open Street Map':
+        display(foliumMap())
+    if map_type == 'Terrain':
+        display(folium.Map(location=[46.815514 , 8.224472], tiles='Stamen Terrain', zoom_start=8, height=400))
+    if map_type == 'Toner':
+        display(folium.Map(location=[46.815514 , 8.224472], tiles='Stamen Toner', zoom_start=8, height=400))
+    if map_type == 'Watercolor':
+        display(folium.Map(location=[46.815514 , 8.224472], tiles='Stamen Watercolor', zoom_start=8, height=400))
+    if map_type == 'Positron':
+        display(folium.Map(location=[46.815514 , 8.224472], tiles='CartoDB Positron', zoom_start=8, height=400))
+    if map_type == 'Dark Matter':
+        display(folium.Map(location=[46.815514 , 8.224472], tiles='CartoDB Dark_Matter', zoom_start=8, height=400))
         #if map_type == 'Satellite':
         #    display(folium.Map(location=[46.815514 , 8.224472], tiles='CartoDB positron', zoom_start=8, height=400))
         # interaction between widgets and function    
-        ipywidgets.interact(select, map_type=select_widget)
+    select_widget=ipywidgets.Select(
+        options=['Open Street Map', 'Terrain', 'Toner', 'Watercolor', 'Positron', 'Dark Matter'],
+        value='Open Street Map',
+        description='Map Type:',
+        disabled=False)    
+    ipywidgets.interact(select, map_type=select_widget)
         
 
 
@@ -263,7 +271,7 @@ def shortest_path(adjacencies, start, goal):
 
 
 
-#depth first search
+#depth first search (profoundeur d'abord)
 def dfs_path():
         
     cantons = ["Zurich", "Berne", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug",
@@ -349,8 +357,22 @@ def bfs_path():
 
 #bidirectional search algorithm
 def bidirectional_search():
+    cantons = ["Zurich", "Berne", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug",
+        "Fribourg", "Solothurn", "Basel-Stadt", "Basel-Landschaft", "Schaffhausen", "St. Gallen", 
+        "Graubunden", "Aargau", "Thurgau", "Tessin", "Vaud", "Valais","Neuchatel", "Genève", "Jura"]
+
+    # Define a function to validate user input for canton selection
+    def validate_canton(canton):
+        return canton in cantons
+
     start = input("Donner le point de départ : ")
+    if not validate_canton(start):
+        print("Invalid input. Please enter a valid canton.")
+        bidirectional_search()
     goal =input("Donner le point d'arrivée : ")
+    if not validate_canton(goal):
+        print("Invalid input. Please enter a valid canton.")
+        bidirectional_search()
 
     forward_visited = set()
     backward_visited = set()
