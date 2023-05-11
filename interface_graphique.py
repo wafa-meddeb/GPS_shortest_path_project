@@ -64,11 +64,10 @@ liste.pack()
 #Dijkstra_botton.pack()
 G = RO2.graph()
 b1 = tk.Button(fenetre, text="Dijkstra", relief="raised", width=25, command= RO2.dijkstra).pack()
-b2 = tk.Button(fenetre, text="Bellman-Ford", relief="raised", width=25).pack()
-b3 = tk.Button(fenetre, text="Largeur", relief="raised", width=25).pack()
-b4 = tk.Button(fenetre, text="Profondeur", relief="raised", width=25).pack()
-
-#b5 = Button(fenetre, text ="RIDGE", relief=RAISED).pack()
+b2 = tk.Button(fenetre, text="Bellman-Ford", relief="raised", width=25, command= RO2.bellman_ford).pack()
+b3 = tk.Button(fenetre, text="Largeur", relief="raised", width=25, command= RO2.bfs_path).pack()
+b4 = tk.Button(fenetre, text="Profondeur", relief="raised", width=25, command= RO2.dfs_path).pack() 
+b5 = tk.Button(fenetre, text ="bidirectional", relief="raised", width=25, command= RO2.bidirectional_search).pack()
 
 # canvas
 canvas = tk.Canvas(fenetre, width=150, height=120, background='yellow')

@@ -1,4 +1,3 @@
-#if __name__ == '__main__':
 import networkx as nx
 import matplotlib.pyplot as plt
 import gmplot
@@ -8,30 +7,8 @@ import ipywidgets
 import math
 import tkinter as tk
 
-    # **Graph avec networkx**
-#global adjacencies
-# adjacencies = {
-#     'Genève': {'Vaud': 65.0},
-#     #il existe une autre distance pour berne et fribourg
-#         'Vaud': {'Berne':[105.2,116.1,121.6],'Valais':148.9, 'Fribourg':[86.2,81.8,82.1], 'Neuchâtel':69.2},
-#         'Valais': {'Berne':[200.1,133.0,243.6], 'uri':[148.3,226.4,368.5], 'Tessin':[177.8,250.7]},
-#         'Fribourg': {'Berne':35.4},
-#         'Neuchâtel': {'Jura':[68.9,68.7,97.5],'Berne':[52.3,69.9]},
-#         'Jura':{'Solothurn':[61.0,68.9]},
-#         'Berne': {'uri':[172.3,170.3,158.8],'Jura':[106.7,109.9],'Solothurn':[41.1,37.7,40.7], 'Luzern':[190.9,96.4,124.0],'obwalden':[132.7,102.8,96.2],'nidwalden':[128.6,126.6,115.1]},
-#         'Solothurn': {'Basel-Landschaft':[45.6,45.8,45.0],'Aargau':68.4,'Luzern':[82.0,85.7]},
-#         'Basel-Landschaft': {'Aargau':[60.1,66.7,63.3], 'Basel-Stadt':26.1},
-#         'Aargau': {'Luzern':[61.7,49.8,49.0], 'Zürich':[36.6,44.7,35.5], 'zug':[43.4,39.2,59.8],'Basel-Stadt':[70.2,83.6,72.1]},
-#         'Zürich': {'schaffhausen':[52.7,46.4,52.5],'thurgau':[64.5,75.1],'st.Gallen':[86.2,82.8,97.3],'zug':[33.8,31.5,29.8],'schwyz':[59.7,54.5,64.2]},
-#         'thurgau': {'st.Gallen':[34.4,41.4,41.8],'schaffhausen':[69.0,55.7,47.5]},
-#         'st.Gallen': {'graubunden':[140.7,174.2],'Glarus':[88.6,124.3,96.9],'schwyz':[114.1,151.4,168.5]},
-#         'Glarus': {'graubunden':[107.8,102.3],'schwyz':[66.4,101.1],'uri':[111.1,142.3,155.9]},
-#         'schwyz': {'uri':43.7,'nidwalden':[46.5,63.6],'Luzern':[45.3,34.8],'zug':[25.8,37.9,28.3]},
-#         'uri': {'graubunden':[196.7,184.4],'Tessin':126.4,'nidwalden':53.6},
-#         'Tessin': {'graubunden':145.3},
-#         'Luzern':{'zug':[31.0,33.4],'obwalden':24.2,'nidwalden':20.6},
-#         'nidwalden':{'obwalden':26.9}
-#     }
+# **Graph avec networkx**
+
 
 def listVoisins():
         nodes = list(adjacencies.keys())
@@ -44,18 +21,6 @@ def listVoisins():
                 print(f"{node} n'est pas présent dans le graphe.")
 
 
-    # ajouter des noeuds au graphe
-    #nodes = list(adjacencies.keys())
-    #G.add_nodes_from(nodes)
-
-
-    #for node, neighbors in adjacencies.items():
-    #   for neighbor, distances in neighbors.items():
-    #      if isinstance(distances, float):
-    #         distance = distances
-        #    else:
-        #       distance = min(distances)
-        #  G.add_edge(node, neighbor, weight=distance)
 
 
 def graph():
@@ -63,25 +28,24 @@ def graph():
     global G
     adjacencies = {
     'Genève': {'Vaud': 65.0},
-    #il existe une autre distance pour berne et fribourg
-        'Vaud': {'Berne':[105.2,116.1,121.6],'Valais':148.9, 'Fribourg':[86.2,81.8,82.1], 'Neuchâtel':69.2},
-        'Valais': {'Berne':[200.1,133.0,243.6], 'uri':[148.3,226.4,368.5], 'Tessin':[177.8,250.7]},
+        'Vaud': {'Berne':[105.2,116.1,121.6],'Valais':148.9, 'Fribourg':[86.2,81.8,82.1], 'Neuchatel':69.2},
+        'Valais': {'Berne':[200.1,133.0,243.6], 'Uri':[148.3,226.4,368.5], 'Tessin':[177.8,250.7]},
         'Fribourg': {'Berne':35.4},
-        'Neuchâtel': {'Jura':[68.9,68.7,97.5],'Berne':[52.3,69.9]},
+        'Neuchatel': {'Jura':[68.9,68.7,97.5],'Berne':[52.3,69.9]},
         'Jura':{'Solothurn':[61.0,68.9]},
-        'Berne': {'uri':[172.3,170.3,158.8],'Jura':[106.7,109.9],'Solothurn':[41.1,37.7,40.7], 'Luzern':[190.9,96.4,124.0],'obwalden':[132.7,102.8,96.2],'nidwalden':[128.6,126.6,115.1]},
+        'Berne': {'Uri':[172.3,170.3,158.8],'Jura':[106.7,109.9],'Solothurn':[41.1,37.7,40.7], 'Luzern':[190.9,96.4,124.0],'Obwalden':[132.7,102.8,96.2],'Nidwalden':[128.6,126.6,115.1]},
         'Solothurn': {'Basel-Landschaft':[45.6,45.8,45.0],'Aargau':68.4,'Luzern':[82.0,85.7]},
         'Basel-Landschaft': {'Aargau':[60.1,66.7,63.3], 'Basel-Stadt':26.1},
-        'Aargau': {'Luzern':[61.7,49.8,49.0], 'Zürich':[36.6,44.7,35.5], 'zug':[43.4,39.2,59.8],'Basel-Stadt':[70.2,83.6,72.1]},
-        'Zürich': {'schaffhausen':[52.7,46.4,52.5],'thurgau':[64.5,75.1],'st.Gallen':[86.2,82.8,97.3],'zug':[33.8,31.5,29.8],'schwyz':[59.7,54.5,64.2]},
-        'thurgau': {'st.Gallen':[34.4,41.4,41.8],'schaffhausen':[69.0,55.7,47.5]},
-        'st.Gallen': {'graubunden':[140.7,174.2],'Glarus':[88.6,124.3,96.9],'schwyz':[114.1,151.4,168.5]},
-        'Glarus': {'graubunden':[107.8,102.3],'schwyz':[66.4,101.1],'uri':[111.1,142.3,155.9]},
-        'schwyz': {'uri':43.7,'nidwalden':[46.5,63.6],'Luzern':[45.3,34.8],'zug':[25.8,37.9,28.3]},
-        'uri': {'graubunden':[196.7,184.4],'Tessin':126.4,'nidwalden':53.6},
-        'Tessin': {'graubunden':145.3},
-        'Luzern':{'zug':[31.0,33.4],'obwalden':24.2,'nidwalden':20.6},
-        'nidwalden':{'obwalden':26.9}
+        'Aargau': {'Luzern':[61.7,49.8,49.0], 'Zurich':[36.6,44.7,35.5], 'Zug':[43.4,39.2,59.8],'Basel-Stadt':[70.2,83.6,72.1]},
+        'Zurich': {'Schaffhausen':[52.7,46.4,52.5],'Thurgau':[64.5,75.1],'St. Gallen':[86.2,82.8,97.3],'Zug':[33.8,31.5,29.8],'Schwyz':[59.7,54.5,64.2]},
+        'Thurgau': {'St. Gallen':[34.4,41.4,41.8],'Schaffhausen':[69.0,55.7,47.5]},
+        'St. Gallen': {'Graubunden':[140.7,174.2],'Glarus':[88.6,124.3,96.9],'Schwyz':[114.1,151.4,168.5]},
+        'Glarus': {'Graubunden':[107.8,102.3],'Schwyz':[66.4,101.1],'Uri':[111.1,142.3,155.9]},
+        'Schwyz': {'Uri':43.7,'Nidwalden':[46.5,63.6],'Luzern':[45.3,34.8],'Zug':[25.8,37.9,28.3]},
+        'Uri': {'Graubunden':[196.7,184.4],'Tessin':126.4,'Nidwalden':53.6},
+        'Tessin': {'Graubunden':145.3},
+        'Luzern':{'Zug':[31.0,33.4],'Obwalden':24.2,'Nidwalden':20.6},
+        'Nidwalden':{'Obwalden':26.9}
     }
     G = nx.Graph()
     # ajouter des noeuds au graphe
@@ -101,9 +65,9 @@ def graph():
 
 
 
-    # **Graph avec folium**
+# **Graph avec folium**
 
-    # Coordonnées des villes
+# Coordonnées des villes
 coords = {
         'Genève': (46.204391, 6.143158),
         'Vaud': (46.561313, 6.536765),
@@ -131,9 +95,9 @@ coords = {
         'obwalden': (46.877858, 8.251249)
     }
 
-    # show map types using ipywidgets et folium
+# show map types using ipywidgets et folium
 
-    # widget
+# widget
 def foliumMap():
         select_widget=ipywidgets.Select(
         options=['Open Street Map', 'Terrain', 'Toner', 'Watercolor', 'Positron', 'Dark Matter'],
@@ -152,7 +116,7 @@ def foliumMap():
         return m
         
 
-    # widget function
+# widget function
 def select(map_type):
         if map_type == 'Open Street Map':
             display(m)
@@ -173,307 +137,282 @@ def select(map_type):
         
 
 
-
-    # **algorithms** 
-
-    #Parcours en profondeur : 
-    #depart = input("Donner le point de départ : ")
-    #dfs_edges = list(nx.dfs_edges(G, source=depart))
-    #print(dfs_edges)
+# **algorithms** 
 
 
-    #dijkstra
-    
-    # Exemple d'utilisation
-
-    # path = bfs_path(G, start, goal)
-    # print(path)
-
-
-    # class Main:
-    #     def __init__(self):
-    #         self.choice = None
-        
-    #     def display_menu(self):
-    #         print("Choisissez l'algorithme de votre choix :")
-    #         print("Pour la recherche en profondeur, tapez 1")
-    #         print("Pour la recherche en largeur, tapez 2")
-    #         print("Pour l'algorithme de Dijkstra, tapez 3")
-    #         print("Pour l'algorithme de Bellman-Ford, tapez 4")
-    #         print("Pour quitter, tapez 0")
-        
-    #     def get_choice(self):
-    #         while True:
-    #             try:
-    #                 self.choice = int(input())
-    #                 if self.choice not in [0, 1, 2, 3, 4]:
-    #                     print("Choix non valide, veuillez réessayer.")
-    #                     continue
-    #                 else:
-    #                     break
-    #             except ValueError:
-    #                 print("Erreur : entrée non valide")
-    #                 continue
-        
-    #     def run_algorithm(self):
-    #         if self.choice == 0:
-    #             print("Au revoir !")
-    #         elif self.choice == 1:
-    #             print("Vous avez choisi la recherche en profondeur.")
-    #             # Appel à la fonction pour la recherche en profondeur
-    #         elif self.choice == 2:
-    #             print("Vous avez choisi la recherche en largeur.")
-    #             # Appel à la fonction pour la recherche en largeur
-    #         elif self.choice == 3:
-    #             print("Vous avez choisi l'algorithme de Dijkstra.")
-    #             # Appel à la fonction pour l'algorithme de Dijkstra
-    #         elif self.choice == 4:
-    #             print("Vous avez choisi l'algorithme de Bellman-Ford.")
-    #             # Appel à la fonction pour l'algorithme de Bellman-Ford
-        
-    #     def start(self):
-    #         while True:
-    #             self.display_menu()
-    #             self.get_choice()
-    #             self.run_algorithm()
-    #             if self.choice == 0:
-    #                 break
-
-
-    #start(self)
+#dijkstra
 
 def dijkstra():
-        city1 = input("Donner le point de départ : ")
-        city2=input("Donner le point d'arrivée : ")
-        distance = nx.dijkstra_path_length(G, city1, city2)
-        path = nx.dijkstra_path(G, city1, city2)
-        print(f"The shortest path between {city1} and {city2} is: {path}")
-        print(f"The shortest distance between {city1} and {city2} is: {distance} km") 
-        return path, distance
+
+    cantons = ["Zurich", "Berne", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug",
+           "Fribourg", "Solothurn", "Basel-Stadt", "Basel-Landschaft", "Schaffhausen", "St. Gallen", 
+           "Graubunden", "Aargau", "Thurgau", "Tessin", "Vaud", "Valais","Neuchatel", "Genève", "Jura"]
+
+ 
+    # Define a function to validate user input for canton selection
+    def validate_canton(canton):
+        return canton in cantons
+
+    city1 = input("Donner le point de départ : ")
+    if not validate_canton(city1):
+        print("Invalid input. Please enter a valid canton.")
+        dijkstra()
+
+    city2=input("Donner le point d'arrivée : ")
+    if not validate_canton(city2):
+        print("Invalid input. Please enter a valid canton.")
+        dijkstra()
+
+    distance = nx.dijkstra_path_length(G, city1, city2)
+    path = nx.dijkstra_path(G, city1, city2)
+    print(f"The shortest path between {city1} and {city2} is: {path}")
+    print(f"The shortest distance between {city1} and {city2} is: {distance} km") 
+
+        
 
 
-    # Call dijkstra function
-    #dijkstra(G, city1, city2)
 
 
-    #bellman_ford
-def bellman_ford(G, city1, city2):
-        #user input
-        city1 = input("Donner le point de départ : ")
-        city2 = input("Donner le point d'arrivée : ")
+
+#bellman_ford
+def bellman_ford():
+
+    cantons = ["Zurich", "Berne", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug",
+           "Fribourg", "Solothurn", "Basel-Stadt", "Basel-Landschaft", "Schaffhausen", "St. Gallen", 
+           "Graubunden", "Aargau", "Thurgau", "Tessin", "Vaud", "Valais","Neuchatel", "Genève", "Jura"]
+
+        
+        
+
+    # Define a function to validate user input for canton selection
+    def validate_canton(canton):
+        return canton in cantons
+       
+    city1 = input("Donner le point de départ : ")
+    if not validate_canton(city1):
+        print("Invalid input. Please enter a valid canton.")
+        bellman_ford()
+    city2 = input("Donner le point d'arrivée : ")
+    if not validate_canton(city2):
+        print("Invalid input. Please enter a valid canton.")
+        bellman_ford()
     
-        # Calculate the shortest path and distance between two cities using Bellman-Ford algorithm
+    # Calculate the shortest path and distance between two cities using Bellman-Ford algorithm
 
-        path = list(nx.bellman_ford_path(G, source=city1,target=city2))
-        distance = nx.bellman_ford_path_length(G, city1, city2)
+    path = list(nx.bellman_ford_path(G, source=city1,target=city2))
+    distance = nx.bellman_ford_path_length(G, city1, city2)
         
-        # Print the shortest path and distance
-        print(f"The shortest path between {city1} and {city2} is: {path}")
-        print(f"The shortest distance between {city1} and {city2} is: {distance} km")
+    # Print the shortest path and distance
+    print(f"The shortest path between {city1} and {city2} is: {path}")
+    print(f"The shortest distance between {city1} and {city2} is: {distance} km")
         
-        #return path,distance
-
-
-    #Algorithme to find the shortest path 
-    #Fama mochkla f chemin binet quelques villes mech lkol 
 
 
 
 def shortest_path(adjacencies, start, goal):
-        #user input
-        start = input("Donner le point de départ : ")
-        goal=input("Donner le point d'arrivée : ")
+        
+    start = input("Donner le point de départ : ")
+    goal=input("Donner le point d'arrivée : ")
 
-        # Create a dictionary to store the distances from the start node to all other nodes
-        distances = {node: float('inf') for node in adjacencies}
-        distances[start] = 0
+    # Create a dictionary to store the distances from the start node to all other nodes
+    distances = {node: float('inf') for node in adjacencies}
+    distances[start] = 0
 
-        # Create a priority queue to store the nodes to be visited
-        queue = [(0, start)]  # (distance, node)
+    # Create a priority queue to store the nodes to be visited
+    queue = [(0, start)]  # (distance, node)
 
-        # Create a dictionary to store the previous node in the shortest path
-        previous = {}
+    # Create a dictionary to store the previous node in the shortest path
+    previous = {}
 
-        while queue:
-            current_distance, current_node = heapq.heappop(queue)
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
 
-            # Check if the current node is the goal
-            if current_node == goal:
-                path = []
-                while current_node in previous:
-                    path.append(current_node)
-                    current_node = previous[current_node]
-                path.append(start)
-                path.reverse()
-                return path
+        # Check if the current node is the goal
+        if current_node == goal:
+            path = []
+            while current_node in previous:
+                path.append(current_node)
+                current_node = previous[current_node]
+            path.append(start)
+            path.reverse()
+            return path
 
-            # Check if the current distance is smaller than the recorded distance for the current node
-            if current_distance > distances[current_node]:
-                continue
+        # Check if the current distance is smaller than the recorded distance for the current node
+        if current_distance > distances[current_node]:
+            continue
 
-            # Explore the neighboring nodes
-            neighbors = adjacencies[current_node]
-            for neighbor, distance in neighbors.items():
-                if isinstance(distance, list):
-                    min_distance = min(distance)  # Use the minimum distance if multiple distances are available
-                else:
-                    min_distance = distance
+        # Explore the neighboring nodes
+        neighbors = adjacencies[current_node]
+        for neighbor, distance in neighbors.items():
+            if isinstance(distance, list):
+                min_distance = min(distance)  # Use the minimum distance if multiple distances are available
+            else:
+                min_distance = distance
 
-                new_distance = current_distance + min_distance
+            new_distance = current_distance + min_distance
 
-                # Check if the new distance is smaller than the recorded distance for the neighbor
-                if new_distance < distances[neighbor]:
-                    distances[neighbor] = new_distance
-                    previous[neighbor] = current_node
-                    heapq.heappush(queue, (new_distance, neighbor))
+            # Check if the new distance is smaller than the recorded distance for the neighbor
+            if new_distance < distances[neighbor]:
+                distances[neighbor] = new_distance
+                previous[neighbor] = current_node
+                heapq.heappush(queue, (new_distance, neighbor))
 
         # If no path is found
         return None
 
 
-    #shortest_path(adjacencies, start, goal)
 
 
-    # Hedha fih mochkla w ma habech yekhdem 
-    # floyd_warshall algorithm 
-
-
-
-    # def floyd_warshall(G):
-    #     # Create a copy of the graph
-    #     dist = {node: dict(neighbors) for node, neighbors in G.items()}
-
-    #     # Initialize distances between nodes
-    #     for i in dist:
-    #         for j in dist:
-    #             if i != j and j not in dist[i]:
-    #                 dist[i][j] = math.inf
-
-    #     # Compute shortest paths
-    #     for k in dist:
-    #         for i in dist:
-    #             for j in dist:
-    #                 if dist[i][j] > dist[i][k] + dist[k][j]:
-    #                     dist[i][j] = dist[i][k] + dist[k][j]
-
-    #     return dist
-
-    # shortest_distances = floyd_warshall(G)
-
-    # start_node = input("Donner le point de départ : ")
-    # goal_node=input("Donner le point d'arrivée : ")
-
-    # # Print the shortest path if it exists
-    # if shortest_distances[start_node][goal_node] != math.inf:
-    #     path = nx.shortest_path(G, start_node, goal_node, weight='weight')
-    #     print(f"Shortest path from {start_node} to {goal_node}:")
-    #     print(" -> ".join(path))
-    # else:
-    #     print(f"No path found from {start_node} to {goal_node}.")
-
-
-    # class Main:
-    #     def __init__(self, master):
-    #         self.master = master
-    #         master.title("Menu")
-    #         self.choice = None
-            
-    #         self.label = tk.Label(master, text="Choisissez l'algorithme de votre choix :")
-    #         self.label.pack()
-            
-    #         self.button1 = tk.Button(master, text="Recherche en profondeur", command=self.choose_1)
-    #         self.button1.pack()
-            
-    #         self.button2 = tk.Button(master, text="Recherche en largeur", command=self.choose_2)
-    #         self.button2.pack()
-            
-    #         self.button3 = tk.Button(master, text="Algorithme de Dijkstra", command=self.choose_3)
-    #         self.button3.pack()
-            
-    #         self.button4 = tk.Button(master, text="Algorithme de Bellman-Ford", command=self.choose_4)
-    #         self.button4.pack()
-            
-    #         self.quit_button = tk.Button(master, text="Quitter", command=master.quit)
-    #         self.quit_button.pack()
+#depth first search
+def dfs_path():
         
-    #     def choose_1(self):
-    #         self.choice = 1
-    #         print("Vous avez choisi la recherche en profondeur.")
-    #         self.master.destroy()
+    cantons = ["Zurich", "Berne", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug",
+           "Fribourg", "Solothurn", "Basel-Stadt", "Basel-Landschaft", "Schaffhausen", "St. Gallen", 
+           "Graubunden", "Aargau", "Thurgau", "Tessin", "Vaud", "Valais","Neuchatel", "Genève", "Jura"]
+
+    
+    # Define a function to validate user input for canton selection
+    def validate_canton(canton):
+        return canton in cantons
+    
+    start = input("Donner le point de départ : ")
+    if not validate_canton(start):
+        print("Invalid input. Please enter a valid canton.")
+        dfs_path()
+
+    goal =input("Donner le point d'arrivée : ")
+    if not validate_canton(goal):
+        print("Invalid input. Please enter a valid canton.")
+        dfs_path()
             
-    #     def choose_2(self):
-    #         self.choice = 2
-    #         print("Vous avez choisi la recherche en largeur.")
-    #         self.master.destroy()
-            
-    #     def choose_3(self):
-    #         self.choice = 3
-    #         print("Vous avez choisi l'algorithme de Dijkstra.")
-    #         self.master.destroy()
-            
-    #     def choose_4(self):
-    #         self.choice = 4
-    #         print("Vous avez choisi l'algorithme de Bellman-Ford.")
-    #         self.master.destroy()
-            
-    #     def get_choice(self):
-    #         return self.choice
+        
+    visited = set()  # ensemble des noeuds déjà visités
+    stack = [(start, [start])]  # pile contenant les noeuds à visiter et leur chemin parcouru jusqu'à présent
+        
+    
+    while stack:
+        (node, path) = stack.pop()  # noeud actuel et chemin parcouru jusqu'à présent
+        visited.add(node)  # ajouter le noeud actuel à l'ensemble des noeuds visités
+        path_found = False  # reset path_found to False at the beginning of each iteration
+        if node == goal:
+            print("le chemin trouvé est: "+ str(path))  # chemin trouvé
+            path_found = True
+            break  # exit the loop when the goal is found
+        for neighbor in G[node]:
+            if neighbor not in visited:
+                stack.append((neighbor, path + [neighbor]))  # ajouter le voisin à la file avec son chemin parcouru jusqu'à présent
+    if path_found == False:
+        print("aucun chemin trouvé")
+
+        
+
+#breadth first search
+def bfs_path():
+    cantons = ["Zurich", "Berne", "Luzern", "Uri", "Schwyz", "Obwalden", "Nidwalden", "Glarus", "Zug",
+        "Fribourg", "Solothurn", "Basel-Stadt", "Basel-Landschaft", "Schaffhausen", "St. Gallen", 
+        "Graubunden", "Aargau", "Thurgau", "Tessin", "Vaud", "Valais","Neuchatel", "Genève", "Jura"]
+
+       
+        
+
+    # Define a function to validate user input for canton selection
+    def validate_canton(canton):
+        return canton in cantons
+
+    start = input("Donner le point de départ : ")
+    if not validate_canton(start):
+        print("Invalid input. Please enter a valid canton.")
+        bfs_path()
+    goal =input("Donner le point d'arrivée : ")
+    if not validate_canton(goal):
+        print("Invalid input. Please enter a valid canton.")
+        bfs_path()
+        
+    visited = set()  # ensemble des noeuds déjà visités
+    queue = [(start, [start])]  # file contenant les noeuds à visiter et leur chemin parcouru jusqu'à présent
+        
+    
+    while queue:
+        (node, path) = queue.pop(0)  # noeud actuel et chemin parcouru jusqu'à présent
+        visited.add(node)
+        path_found = False  # reset path_found to False at the beginning of each iteration
+        if node == goal:
+            print("le chemin trouvé est: "+ str(path))  # chemin trouvé
+            path_found = True
+            break  # exit the loop when the goal is found
+        for neighbor in G[node]:
+            if neighbor not in visited:
+                queue.append((neighbor, path + [neighbor]))  # ajouter le voisin à la file avec son chemin parcouru jusqu'à présent
+    if path_found == False:
+        print("aucun chemin trouvé")
 
 
-    #depth first search
-def dfs_path(G, start, goal):
-        """
-        Recherche d'un chemin en profondeur entre le noeud start et le noeud goal dans le graphe graph.
-        
-        """
-        start = input("Donner le point de départ : ")
-        goal =input("Donner le point d'arrivée : ")
-        
-        visited = set()  # ensemble des noeuds déjà visités
-        stack = [(start, [start])]  # pile contenant les noeuds à visiter et leur chemin parcouru jusqu'à présent
-        
-        while stack:
-            (node, path) = stack.pop()  # noeud actuel et chemin parcouru jusqu'à présent
-            if node not in visited:
-                visited.add(node)
-                if node == goal:
-                    return path  # chemin trouvé
-                for neighbor in G[node]:
-                    if neighbor not in visited:
-                        stack.append((neighbor, path + [neighbor]))  # ajouter le voisin à la pile avec son chemin parcouru jusqu'à présent
-        
-        return None  # pas de chemin trouvé
+#bidirectional search algorithm
+def bidirectional_search():
+    start = input("Donner le point de départ : ")
+    goal =input("Donner le point d'arrivée : ")
 
-        # path = dfs_path(G, start, goal)
-        # print(path)
+    forward_visited = set()
+    backward_visited = set()
+    forward_parent = {}
+    backward_parent = {}
 
-    # Exemple d'utilisation
-    #graph = nx.Graph()
-    #graph.add_edges_from([(1, 2), (1, 3), (2, 4), (3, 4), (4, 5), (4, 6), (5, 6)])
-    #start = 1
-    #goal = 6
+    forward_visited.add(start)
+    backward_visited.add(goal)
 
-    #breadth first search
-def bfs_path(G, start, goal):
-        """
-        Recherche d'un chemin en largeur entre le noeud start et le noeud goal dans le graphe graph.
-        """
-        start = input("Donner le point de départ : ")
-        goal =input("Donner le point d'arrivée : ")
-        
-        visited = set()  # ensemble des noeuds déjà visités
-        queue = [(start, [start])]  # file contenant les noeuds à visiter et leur chemin parcouru jusqu'à présent
-        
-        while queue:
-            (node, path) = queue.pop(0)  # noeud actuel et chemin parcouru jusqu'à présent
-            if node not in visited:
-                visited.add(node)
-                if node == goal:
-                    return path  # chemin trouvé
-                for neighbor in G[node]:
-                    if neighbor not in visited:
-                        queue.append((neighbor, path + [neighbor]))  # ajouter le voisin à la file avec son chemin parcouru jusqu'à présent
-        
-        return None  # pas de chemin trouvé
+    intersect_node = None
+    path = []
+
+    while len(forward_visited) > 0 and len(backward_visited) > 0:
+        # Forward search
+        current_node = forward_visited.pop()
+        for neighbor in G.neighbors(current_node):
+            if neighbor not in forward_visited:
+                forward_visited.add(neighbor)
+                forward_parent[neighbor] = current_node
+
+            if neighbor in backward_visited:
+                intersect_node = neighbor
+                break
+
+        if intersect_node is not None:
+            break
+
+        # Backward search
+        current_node = backward_visited.pop()
+        for neighbor in G.neighbors(current_node):
+            if neighbor not in backward_visited:
+                backward_visited.add(neighbor)
+                backward_parent[neighbor] = current_node
+
+            if neighbor in forward_visited:
+                intersect_node = neighbor
+                break
+
+        if intersect_node is not None:
+            break
+
+    if intersect_node is not None:
+        # Construct the path from start to goal
+        path.append(intersect_node)
+        node = forward_parent[intersect_node]
+        while node != start:
+            path.append(node)
+            node = forward_parent[node]
+        path.append(start)
+        path.reverse()
+
+        # Extend the path from goal to intersect
+        node = backward_parent[intersect_node]
+        while node != goal:
+            path.append(node)
+            node = backward_parent[node]
+        path.append(goal)
+
+        print("le chemin trouvé est: "+ str(path))
+    else:
+        # No path was found
+        print("aucun chemin trouvé")
+    
 
 
