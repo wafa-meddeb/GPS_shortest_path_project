@@ -47,8 +47,7 @@ nb_elements = liste.size()
 liste.config(height=nb_elements)
 liste.pack(pady= 20)
 
-#Dijkstra_botton =Button(master, option=value,activeforeground="grey",command=print("Dijkstra"))
-#Dijkstra_botton.pack()
+
 G = RO2.graph()
 b1 = tk.Button(fenetre, text="Dijkstra", relief="raised", width=25, command= RO2.dijkstra).pack()
 b2 = tk.Button(fenetre, text="Bellman-Ford", relief="raised", width=25, command= RO2.bellman_ford).pack()
@@ -64,11 +63,11 @@ fenetre.geometry("600x800+{}+{}".format(int(fenetre.winfo_screenwidth() / 2 - 40
 
 
 
-liste = tk.Listbox(fenetre, font=("Arial", 15), height=5, width=30)
-# obtenir le nombre d'éléments dans la liste
-nb_elements = liste.size()
-# ajuster la hauteur de la Listbox en fonction du nombre d'éléments
-liste.config(height=nb_elements)
+# liste = tk.Listbox(fenetre, font=("Arial", 15), height=5, width=30)
+# # obtenir le nombre d'éléments dans la liste
+# nb_elements = liste.size()
+# # ajuster la hauteur de la Listbox en fonction du nombre d'éléments
+# liste.config(height=nb_elements)
 
 
 # démarrage de la boucle principale Tkinter
