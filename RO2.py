@@ -215,62 +215,6 @@ def bellman_ford():
     print(f"The shortest distance between {city1} and {city2} is: {distance} km")
         
 
-
-
-def shortest_path(adjacencies, start, goal):
-        
-    start = input("Donner le point de départ : ")
-    goal=input("Donner le point d'arrivée : ")
-
-    # Create a dictionary to store the distances from the start node to all other nodes
-    distances = {node: float('inf') for node in adjacencies}
-    distances[start] = 0
-
-    # Create a priority queue to store the nodes to be visited
-    queue = [(0, start)]  # (distance, node)
-
-    # Create a dictionary to store the previous node in the shortest path
-    previous = {}
-
-    while queue:
-        current_distance, current_node = heapq.heappop(queue)
-
-        # Check if the current node is the goal
-        if current_node == goal:
-            path = []
-            while current_node in previous:
-                path.append(current_node)
-                current_node = previous[current_node]
-            path.append(start)
-            path.reverse()
-            return path
-
-        # Check if the current distance is smaller than the recorded distance for the current node
-        if current_distance > distances[current_node]:
-            continue
-
-        # Explore the neighboring nodes
-        neighbors = adjacencies[current_node]
-        for neighbor, distance in neighbors.items():
-            if isinstance(distance, list):
-                min_distance = min(distance)  # Use the minimum distance if multiple distances are available
-            else:
-                min_distance = distance
-
-            new_distance = current_distance + min_distance
-
-            # Check if the new distance is smaller than the recorded distance for the neighbor
-            if new_distance < distances[neighbor]:
-                distances[neighbor] = new_distance
-                previous[neighbor] = current_node
-                heapq.heappush(queue, (new_distance, neighbor))
-
-        # If no path is found
-        return None
-
-
-
-
 #depth first search (profoundeur d'abord)
 def dfs_path():
         
